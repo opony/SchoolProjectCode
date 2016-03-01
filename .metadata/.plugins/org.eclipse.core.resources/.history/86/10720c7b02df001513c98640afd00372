@@ -1,0 +1,16 @@
+package com.pony.loader;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class XmlLoader {
+	public static Map<String,String> loadFile(String filePath){
+		Map<String,String> configMap = new HashMap<String, String>();
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return configMap;
+	}
+}

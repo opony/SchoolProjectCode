@@ -1,0 +1,17 @@
+package com.pony.adapter.config;
+
+import org.dom4j.Document;
+import org.dom4j.Node;
+
+public class ConfigXmlParser {
+	public static ConfigAttr getConfigAttr(Document doc){
+		ConfigAttr configAttr = new ConfigAttr();
+		
+		Node hostsNode = doc.selectSingleNode("//Config/Hosts");
+		configAttr.hosts = hostsNode.getText().split(",");
+		
+		
+		return configAttr;
+				
+	}
+}

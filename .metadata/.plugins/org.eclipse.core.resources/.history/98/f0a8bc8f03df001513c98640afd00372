@@ -1,0 +1,5 @@
+package com.pony.adapter.config;
+
+public class ConfigXmlParser {
+
+}

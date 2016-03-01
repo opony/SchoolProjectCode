@@ -1,0 +1,23 @@
+package com.pony.loader;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.dom4j.Document;
+
+public class XmlLoader {
+	public static Document loadFile(String filePath) throws Exception{
+		Map<String,String> configMap = new HashMap<String, String>();
+		File fXmlFile = new File("./Test.xml");
+    	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+    	Document doc = (Document) dBuilder.parse(fXmlFile);
+    	
+		return doc;
+	}
+}

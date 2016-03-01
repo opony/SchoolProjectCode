@@ -1,0 +1,14 @@
+package com.pony.adapter.config;
+
+import org.dom4j.Document;
+
+public class ConfigXmlParser {
+	public static ConfigAttr getConfigAttr(Document doc){
+		ConfigAttr configAttr = new ConfigAttr();
+		
+		
+		
+		return configAttr;
+				
+	}
+}

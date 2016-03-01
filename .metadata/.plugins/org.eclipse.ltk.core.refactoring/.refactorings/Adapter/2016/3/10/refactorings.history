@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;com.pony.adapter.server.BaseServer.ListenerPort()&apos; to &apos;listenerPort&apos;&#x0D;&#x0A;- Original project: &apos;Adapter&apos;&#x0D;&#x0A;- Original element: &apos;com.pony.adapter.server.BaseServer.ListenerPort()&apos;&#x0D;&#x0A;- Renamed element: &apos;com.pony.adapter.server.BaseServer.listenerPort()&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;ListenerPort&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;com.pony.adapter.server{BaseServer.java[BaseServer~ListenerPort" name="listenerPort" references="true" stamp="1456801998845" version="1.0"/>
+</session>

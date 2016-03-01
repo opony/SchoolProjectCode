@@ -1,0 +1,22 @@
+1453617503480	Rename field 'INIT'
+1453617528655	Rename method 'postInitData'
+1453643271835	Rename type 'IReciveMsgEvent'
+1453643299747	Rename local variable 'syncAgentHandler'
+1453648918708	Rename field 'sendToSrvQue'
+1453648939926	Rename method 'putSendToSrvQue'
+1453648948757	Rename method 'takeSendToSrvQue'
+1453771739225	Rename field 'syncAgentHandler'
+1453777840225	Rename method 'startAgent'
+1453778437281	Rename type 'PirmaryAgentReciveEvent'
+1453789093889	Rename type 'BasicClient'
+1453791254630	Rename type 'AgentReciveEvent'
+1453800439100	Rename local variable 'rootNode'
+1453874162607	Rename method 'sendSyncMsgRequest'
+1453874344385	Rename method 'createAgent'
+1453880573362	Move file
+1453880881462	Rename resource 'LogConfig.xml'
+1453880993013	Delete element
+1453881053599	Delete element
+1453884058200	Delete element
+1453963816993	Delete element
+1453963836355	Rename package 'com.pony.event'
