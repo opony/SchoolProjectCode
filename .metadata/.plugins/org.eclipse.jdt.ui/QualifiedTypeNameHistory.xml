@@ -58,4 +58,6 @@
 <fullyQualifiedTypeName name="com.pony.adapter.config.ConfigAttr"/>
 <fullyQualifiedTypeName name="com.pony.adapter.config.ConfigXmlParser"/>
 <fullyQualifiedTypeName name="org.dom4j.io.SAXReader"/>
+<fullyQualifiedTypeName name="com.pony.config.ConfigParser"/>
+<fullyQualifiedTypeName name="com.pony.config.ConfigAttr"/>
 </qualifiedTypeNameHistroy>

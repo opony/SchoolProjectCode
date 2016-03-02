@@ -51,12 +51,13 @@
 		<item value="400" key="height"/>
 	</section>
 	<section name="FatJarPackageWizard">
-		<item value="D:\Workspace\Java\School" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="CollectionServer - DataCollectionServer" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="D:\CollectionServer.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="D:\Workspace\Java\School.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="AdapterExecuter - Adapter" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\ExportJar\Adapter.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="2" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\ExportJar\Adapter.jar"/>
 			<item value="D:\CollectionServer.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">

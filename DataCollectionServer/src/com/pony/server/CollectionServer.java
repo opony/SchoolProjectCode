@@ -11,17 +11,20 @@ import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 
 import com.pony.agent.InternalSyncAgent;
+import com.pony.config.ConfigAttr;
+import com.pony.config.ConfigParser;
 import com.pony.handler.CollectionReciveHandler;
 import com.pony.handler.IReciveMsgHandler;
+import com.pony.loader.XmlLoader;
 
 
 
 
 public class CollectionServer extends BaseServer{
 	
-	public CollectionServer(ServerRole servRole, int port, IReciveMsgHandler reciveMsgHandler) {
+	public CollectionServer(ServerRole servRole,String primaryHost,  int port, IReciveMsgHandler reciveMsgHandler) {
 		super(port, reciveMsgHandler);
-		InternalSyncAgent.GetInstance().startAgent(servRole);
+		InternalSyncAgent.GetInstance().startAgent(servRole, primaryHost);
 	}
 
 	public enum ServerRole {
@@ -35,20 +38,30 @@ public class CollectionServer extends BaseServer{
      */
     public static void main( String[] args )
     {
+    	ExecutorService threadExecutor = Executors.newCachedThreadPool();
     	
     	try {
+    		Document doc = XmlLoader.loadFile(args[0]);
+    		ConfigAttr configAttr = ConfigParser.getConfigAttr(doc);
     		
+    		if(configAttr.role.equals("Primary")){
+        		threadExecutor.execute(new CollectionServer(ServerRole.Primary,"", configAttr.listenPort, new CollectionReciveHandler("Primary Server")));
+        	}else if(args[0].equals("Secondary")){
+        		threadExecutor.execute(new CollectionServer(ServerRole.Secondary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Secondary Server")));
+        	}
+
+        	while(true){}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-    	
-    	
-    	ExecutorService threadExecutor = Executors.newCachedThreadPool();
-    	if(args[0].equals("Primary")){
-    		threadExecutor.execute(new CollectionServer(ServerRole.Primary, LISTEN_PORT, new CollectionReciveHandler("Primary Server")));
-    	}
+    	finally{
+    		threadExecutor.shutdown();
     		
-    	while(true){}
+    	}
+    	
+    	
+    	
+    	
     }
     
     

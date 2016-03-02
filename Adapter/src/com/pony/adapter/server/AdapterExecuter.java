@@ -28,7 +28,7 @@ public class AdapterExecuter {
 			}
 			//String[] hostIps = new String[]{"localhost:10020","localhost:10021"};
 			threadExecutor.execute(new BaseClient(configAttr.hosts, new ClientReciveHandler()));
-			
+			while(true){}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -36,7 +36,7 @@ public class AdapterExecuter {
 		}
 		
 		
-		while(true){}
+		
 
 	}
 

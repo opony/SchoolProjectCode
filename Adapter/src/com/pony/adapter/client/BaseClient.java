@@ -61,7 +61,7 @@ public class BaseClient implements Runnable {
 		try {
 			System.out.println("Try to connect : " + hostIps[currHostIDx]);
 			tokens = hostIps[currHostIDx].split(":");
-			currHostIDx++;
+			currHostIDx = currHostIDx == 0 ? 1 : 0;
 			
 			host = tokens[0];
 			port = Integer.parseInt(tokens[1]);
@@ -74,7 +74,7 @@ public class BaseClient implements Runnable {
 			
 		} catch (Exception e) {
 			System.out.println("Connect Fail.");
-			e.printStackTrace();
+			//e.printStackTrace();
 			
 			throw e;
 		}

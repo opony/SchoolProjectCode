@@ -22,7 +22,7 @@ public class InternalSyncAgent {
 	
 	private static ISyncAgent syncAgent;
 	private static InternalSyncAgent instance;
-	private String host = "192.168.60.1";
+	//private String host = "192.168.60.1";
 //	private ServerRole role;
 	public InternalSyncAgent() throws FileNotFoundException, IOException{
 		DOMConfigurator.configure("C:/LogConfig.xml");
@@ -39,7 +39,7 @@ public class InternalSyncAgent {
 			}
 		return instance;
 	}
-	public void startAgent(ServerRole role){
+	public void startAgent(ServerRole role, String primaryHost){
 		logger.info("Start agent : " + role.toString());
 //		this.role = role;
 		ExecutorService threadExecutor = Executors.newCachedThreadPool();
@@ -48,8 +48,8 @@ public class InternalSyncAgent {
 			syncAgent = new SyncAgentServer(PRIMARY_PORT, new SyncAgentReciveHander() );
 			threadExecutor.execute((SyncAgentServer)syncAgent);
 		}else{
-			logger.info("Connect to : " + host + ":" + PRIMARY_PORT );
-			syncAgent = new SyncAgentClient(host, PRIMARY_PORT, new SyncAgentReciveHander());
+			logger.info("Connect to : " + primaryHost + ":" + PRIMARY_PORT );
+			syncAgent = new SyncAgentClient(primaryHost, PRIMARY_PORT, new SyncAgentReciveHander());
 			threadExecutor.execute((SyncAgentClient)syncAgent);
 		}
 	}

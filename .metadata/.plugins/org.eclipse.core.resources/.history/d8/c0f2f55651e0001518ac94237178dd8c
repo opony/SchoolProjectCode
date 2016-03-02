@@ -1,0 +1,4 @@
+<Config>
+	<Role>Primary</Role>
+	<ListenPort>9010</ListenPort>
+</Config>

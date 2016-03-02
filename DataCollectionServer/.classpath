@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Jaxen"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Log4j"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ConfigLoader"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
