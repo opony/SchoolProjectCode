@@ -8,7 +8,6 @@ import java.net.Socket;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.pony.agent.ISyncAgent;
 import com.pony.handler.IReciveMsgHandler;
 
 public class BaseClient implements Runnable {

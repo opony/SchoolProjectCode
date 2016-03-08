@@ -25,7 +25,7 @@ public class InternalSyncAgent {
 	//private String host = "192.168.60.1";
 //	private ServerRole role;
 	public InternalSyncAgent() throws FileNotFoundException, IOException{
-		DOMConfigurator.configure("C:/LogConfig.xml");
+		//DOMConfigurator.configure("LogConfig.xml");
 	}
 	
 	public static InternalSyncAgent GetInstance(){

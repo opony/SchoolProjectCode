@@ -1,23 +1,8 @@
 package com.pony.server;
 
-import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
 
 import com.pony.agent.InternalSyncAgent;
-import com.pony.config.ConfigAttr;
-import com.pony.config.ConfigParser;
-import com.pony.handler.CollectionReciveHandler;
 import com.pony.handler.IReciveMsgHandler;
-import com.pony.loader.XmlLoader;
-
-
 
 
 public class CollectionServer extends BaseServer{
@@ -31,38 +16,38 @@ public class CollectionServer extends BaseServer{
 	    Primary, Secondary
 	} 
 	
-	public static final int LISTEN_PORT = 9010;
+//	public static final int LISTEN_PORT = 9010;
 	
 	/**
      * @param args
      */
-    public static void main( String[] args )
-    {
-    	ExecutorService threadExecutor = Executors.newCachedThreadPool();
-    	
-    	try {
-    		Document doc = XmlLoader.loadFile(args[0]);
-    		ConfigAttr configAttr = ConfigParser.getConfigAttr(doc);
-    		
-    		if(configAttr.role.equals("Primary")){
-        		threadExecutor.execute(new CollectionServer(ServerRole.Primary,"", configAttr.listenPort, new CollectionReciveHandler("Primary Server")));
-        	}else if(args[0].equals("Secondary")){
-        		threadExecutor.execute(new CollectionServer(ServerRole.Secondary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Secondary Server")));
-        	}
-
-        	while(true){}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    	finally{
-    		threadExecutor.shutdown();
-    		
-    	}
-    	
-    	
-    	
-    	
-    }
+//    public static void main( String[] args )
+//    {
+//    	ExecutorService threadExecutor = Executors.newCachedThreadPool();
+//    	
+//    	try {
+//    		Document doc = XmlLoader.loadFile(args[0]);
+//    		ConfigAttr configAttr = ConfigParser.getConfigAttr(doc);
+//    		
+//    		if(configAttr.role.equals("Primary")){
+//        		threadExecutor.execute(new CollectionServer(ServerRole.Primary,"", configAttr.listenPort, new CollectionReciveHandler("Primary Server")));
+//        	}else if(args[0].equals("Secondary")){
+//        		threadExecutor.execute(new CollectionServer(ServerRole.Secondary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Secondary Server")));
+//        	}
+//
+//        	while(true){}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//    	finally{
+//    		threadExecutor.shutdown();
+//    		
+//    	}
+//    	
+//    	
+//    	
+//    	
+//    }
     
     
 //    public static void main( String[] args )

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=DataCollectionServer/src&lt;com.pony.client{BaseClient.java[BaseClient" modifiers="1" timestamp="1456886632192"/>
-<typeInfo handle="=DataCollectionServer/src&lt;com.pony.server{BaseServer.java[BaseServer" modifiers="1" timestamp="1456886632225"/>
-<typeInfo handle="=DataCollectionServer/src&lt;com.pony.agent{ISyncAgent.java[ISyncAgent" modifiers="513" timestamp="1456886632143"/>
-<typeInfo handle="=Adapter/src&lt;com.pony.adapter.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456886632038"/>
-<typeInfo handle="=DataCollectionServer/src&lt;com.pony.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456886632198"/>
+<typeInfo handle="=DataCollectionServer/src&lt;com.pony.client{BaseClient.java[BaseClient" modifiers="1" timestamp="1457018549324"/>
+<typeInfo handle="=DataCollectionServer/src&lt;com.pony.server{BaseServer.java[BaseServer" modifiers="1" timestamp="1456925974339"/>
+<typeInfo handle="=DataCollectionServer/src&lt;com.pony.agent{ISyncAgent.java[ISyncAgent" modifiers="513" timestamp="1456925974305"/>
+<typeInfo handle="=Adapter/src&lt;com.pony.adapter.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456925974215"/>
+<typeInfo handle="=DataCollectionServer/src&lt;com.pony.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456925974329"/>
 </typeInfoHistroy>
