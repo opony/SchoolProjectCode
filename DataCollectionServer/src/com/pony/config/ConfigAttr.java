@@ -4,4 +4,5 @@ public class ConfigAttr {
 	public String primaryHost;
 	public int listenPort;
 	public String role;
+	public String dbUrl;
 }

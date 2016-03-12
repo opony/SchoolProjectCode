@@ -2,4 +2,5 @@
 	<Role>Primary</Role>
 	<ListenPort>9010</ListenPort>
 	<PirmaryHost></PirmaryHost>
+	<DBUrl></DBUrl>
 </Config>

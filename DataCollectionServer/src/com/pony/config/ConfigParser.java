@@ -15,6 +15,7 @@ public class ConfigParser {
 		configAttr.listenPort = Integer.parseInt(strPort);
 		
 		configAttr.primaryHost = doc.selectSingleNode("//Config/PirmaryHost").getText();
+		configAttr.dbUrl = doc.selectSingleNode("//Config/DBUrl").getText();
 		return configAttr;
 				
 	}

@@ -32,8 +32,6 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 			
 			MsgQueue.putMsg(msg);
 			InternalSyncAgent.GetInstance().syncMsgRequest(msg);
-			
-//			parseMsg(msg);
 			data = data.substring(eofEndIdx + 6, data.length());
 		}
 		
@@ -64,7 +62,7 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 				sescList.add(sescData);
 			}
 			
-			//SescDataDao.Insert(sescList);
+			SescDataDao.Insert(sescList);
 			
 		} catch (Exception e) {
 			System.out.println("insert db fail" + e.getStackTrace());

@@ -1,0 +1,2 @@
+127.0.0.1 - - [12/Mar/2016:23:41:10 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [12/Mar/2016:23:41:11 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 25

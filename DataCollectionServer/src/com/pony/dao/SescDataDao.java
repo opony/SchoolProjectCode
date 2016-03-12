@@ -14,7 +14,7 @@ import com.pony.vo.SescData;
 public class SescDataDao {
 	private static final String TABLE_NAME = "SESC_DATA";
 	private static Logger logger = LogManager.getLogger("CollectionServer");
-	
+	public static String dbUrl = "jdbc:mysql://localhost:3306/ProjectDB";
 	public static void Insert(ArrayList<SescData> sescDataList){
 		Connection conDB = null;
 		PreparedStatement ps = null;
@@ -22,10 +22,10 @@ public class SescDataDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url ="jdbc:mysql://localhost:3306/world";
+			//String url ="jdbc:mysql://localhost:3306/ProjectDB";
 			String user="root";
 			String password="po0110";
-			conDB = DriverManager.getConnection(url, user, password);
+			conDB = DriverManager.getConnection(dbUrl, user, password);
 			String sql = "insert into " + TABLE_NAME + "(SERVER_NAME, TIMESTAMP, TOOL_ID, DATA_ITEM1, DATA_ITEM2, " +
 						"DATA_ITEM3, DATA_ITEM4, DATA_ITEM5, DATA_ITEM6, DATA_ITEM7, DATA_ITEM8, DATA_ITEM9, DATA_ITEM10) " +
 						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -58,7 +58,6 @@ public class SescDataDao {
 				if(ps != null)
 					ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -66,7 +65,6 @@ public class SescDataDao {
 				if(conDB != null)
 					conDB.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
