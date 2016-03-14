@@ -6,6 +6,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+
+import com.pony.docker.RemoteApi;
+
+
 /**
  * Servlet implementation class RebootDockerServlet
  */
@@ -24,8 +31,24 @@ public class RebootDockerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = "5a3a1b4b3e78";
+//		HttpClient client = new HttpClient();
+//		PostMethod post = new PostMethod("http://schoolproject.cloudapp.net:2375/containers/" + id + "/start");
+//		int statusCode = client.executeMethod(post);
+//		String res = "code " + statusCode;
+//		post.releaseConnection();
+		
+		try {
+			//RemoteApi.stopContainer(id);
+			RemoteApi.removeContainer(id);
+			String creID = RemoteApi.createContainer("opony/school:test2");
+			response.getWriter().append("Served at: " + creID);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.getWriter().append("Served at: ");
 	}
 
 	/**

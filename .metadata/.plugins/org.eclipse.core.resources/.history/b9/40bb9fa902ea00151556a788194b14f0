@@ -1,0 +1,18 @@
+package com.pony.docker;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String id = "17f63679ef18";
+		try {
+			//RemoteApi.stopContainer(id);
+			RemoteApi.removeContainer(id);
+			String creID = RemoteApi.createContainer("opony/school:test2");
+			System.out.println(creID.substring(0, 12));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

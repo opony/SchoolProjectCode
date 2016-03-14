@@ -1,0 +1,13 @@
+127.0.0.1 - - [14/Mar/2016:16:22:44 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:16:22:45 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 25
+127.0.0.1 - - [14/Mar/2016:16:23:30 +0800] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [14/Mar/2016:16:26:11 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:16:26:12 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 500 1828
+127.0.0.1 - - [14/Mar/2016:16:27:07 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:16:27:08 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 11
+127.0.0.1 - - [14/Mar/2016:23:39:27 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:23:40:13 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 86
+127.0.0.1 - - [14/Mar/2016:23:41:41 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:23:41:42 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 86
+127.0.0.1 - - [14/Mar/2016:23:42:24 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Mar/2016:23:42:25 +0800] "GET /DockerManager/RebootDockerServlet HTTP/1.1" 200 86

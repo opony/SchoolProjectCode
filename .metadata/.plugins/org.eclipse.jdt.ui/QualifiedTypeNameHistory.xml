@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.dom4j.DocumentHelper"/>
-<fullyQualifiedTypeName name="org.dom4j.Element"/>
-<fullyQualifiedTypeName name="com.pony.event.IReciveMsgEvent"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
-<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="com.pony.event.PirmaryAgentReciveEvent"/>
-<fullyQualifiedTypeName name="com.pony.server.BaseServer"/>
-<fullyQualifiedTypeName name="java.net.Socket"/>
-<fullyQualifiedTypeName name="com.pony.agent.ISyncAgent"/>
-<fullyQualifiedTypeName name="com.pony.agent.SyncAgentClient"/>
 <fullyQualifiedTypeName name="com.pony.event.SyncAgentReciveHander"/>
 <fullyQualifiedTypeName name="com.pony.agent.SyncAgentServer"/>
 <fullyQualifiedTypeName name="com.pony.queue.MsgQueue"/>
@@ -60,4 +48,16 @@
 <fullyQualifiedTypeName name="com.pony.config.ConfigParser"/>
 <fullyQualifiedTypeName name="com.pony.config.ConfigAttr"/>
 <fullyQualifiedTypeName name="com.pony.dao.SescDataDao"/>
+<fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.HttpClient"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.HttpMethod"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.PostMethod"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.DeleteMethod"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.StringRequestEntity"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.IOUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.IOUtils"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="com.pony.docker.RemoteApi"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.GetMethod"/>
 </qualifiedTypeNameHistroy>
