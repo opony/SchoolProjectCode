@@ -24,14 +24,14 @@ public class SescDataDao {
 			Class.forName("com.mysql.jdbc.Driver");
 			//String url ="jdbc:mysql://localhost:3306/ProjectDB";
 			String user="root";
-			String password="po0110";
+			String password="Pony0110";
 			conDB = DriverManager.getConnection(dbUrl, user, password);
 			String sql = "insert into " + TABLE_NAME + "(SERVER_NAME, TIMESTAMP, TOOL_ID, DATA_ITEM1, DATA_ITEM2, " +
 						"DATA_ITEM3, DATA_ITEM4, DATA_ITEM5, DATA_ITEM6, DATA_ITEM7, DATA_ITEM8, DATA_ITEM9, DATA_ITEM10) " +
 						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps = (PreparedStatement) conDB.prepareStatement(sql);
 			for(SescData sescData : sescDataList){
-				int i = 0;
+				int i = 1;
 				ps.setString(i++, sescData.serverName);
 				ps.setTimestamp(i++, sescData.time);
 				ps.setString(i++, sescData.toolID);
@@ -44,7 +44,7 @@ public class SescDataDao {
 				ps.setDouble(i++, sescData.datas[6] );
 				ps.setDouble(i++, sescData.datas[7] );
 				ps.setDouble(i++, sescData.datas[8] );
-				ps.setDouble(i++, sescData.datas[0] );
+				ps.setDouble(i++, sescData.datas[9] );
 				ps.addBatch();
 				
 			}
@@ -52,6 +52,7 @@ public class SescDataDao {
 			ps.executeBatch();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Insert db fail . ", e);
 		}finally{
 			try {

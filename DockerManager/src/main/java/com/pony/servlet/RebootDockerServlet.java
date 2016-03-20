@@ -39,16 +39,17 @@ public class RebootDockerServlet extends HttpServlet {
 //		post.releaseConnection();
 		
 		try {
-			//RemoteApi.stopContainer(id);
+			RemoteApi.stopContainer(id);
 			RemoteApi.removeContainer(id);
 			String creID = RemoteApi.createContainer("opony/school:test2");
+			RemoteApi.startContainer(creID);
+			
 			response.getWriter().append("Served at: " + creID);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		response.getWriter().append("Served at: ");
 	}
 
 	/**

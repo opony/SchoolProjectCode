@@ -23,7 +23,7 @@ public class ServerExecutor {
     		SescDataDao.dbUrl = configAttr.dbUrl;
     		if(configAttr.role.equals("Primary")){
         		threadExecutor.execute(new CollectionServer(ServerRole.Primary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Primary Server")));
-        	}else if(args[0].equals("Secondary")){
+        	}else if(configAttr.role.equals("Secondary")){
         		threadExecutor.execute(new CollectionServer(ServerRole.Secondary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Secondary Server")));
         	}
 

@@ -46,10 +46,10 @@ public class BaseClient implements Runnable {
 	
 	private void startRecive() throws Exception{
 		while(true){
-			input.read();
+//			input.read();
 			while(MsgQueue.msgQueueLength() > 0){
-				
-				this.reciveMsgHandler.reciveMsg(MsgQueue.takeMsg());
+				socket.sendUrgentData(0xFF);
+				this.reciveMsgHandler.reciveMsg(MsgQueue.takeMsg() + "</EOF>");
 			}
 		}
 	}
@@ -83,6 +83,7 @@ public class BaseClient implements Runnable {
 	public void sendToServer(String msg) throws IOException{
 		
 		output.write(msg.getBytes());
+		output.flush();
 	}
 
 }
