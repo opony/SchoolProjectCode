@@ -3,6 +3,7 @@ package com.pony.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import org.apache.log4j.LogManager;
@@ -15,6 +16,7 @@ public class SescDataDao {
 	private static final String TABLE_NAME = "SESC_DATA";
 	private static Logger logger = LogManager.getLogger("CollectionServer");
 	public static String dbUrl = "jdbc:mysql://localhost:3306/ProjectDB";
+	private static SimpleDateFormat df = new SimpleDateFormat("SSS");
 	public static void Insert(ArrayList<SescData> sescDataList){
 		Connection conDB = null;
 		PreparedStatement ps = null;
@@ -26,14 +28,15 @@ public class SescDataDao {
 			String user="root";
 			String password="Pony0110";
 			conDB = DriverManager.getConnection(dbUrl, user, password);
-			String sql = "insert into " + TABLE_NAME + "(SERVER_NAME, TIMESTAMP, TOOL_ID, DATA_ITEM1, DATA_ITEM2, " +
+			String sql = "insert into " + TABLE_NAME + "(SERVER_NAME, TIMESTAMP, MS, TOOL_ID, DATA_ITEM1, DATA_ITEM2, " +
 						"DATA_ITEM3, DATA_ITEM4, DATA_ITEM5, DATA_ITEM6, DATA_ITEM7, DATA_ITEM8, DATA_ITEM9, DATA_ITEM10) " +
-						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps = (PreparedStatement) conDB.prepareStatement(sql);
 			for(SescData sescData : sescDataList){
 				int i = 1;
 				ps.setString(i++, sescData.serverName);
 				ps.setTimestamp(i++, sescData.time);
+				ps.setString(i++, df.format(sescData.time));				
 				ps.setString(i++, sescData.toolID);
 				ps.setDouble(i++, sescData.datas[0] );
 				ps.setDouble(i++, sescData.datas[1] );

@@ -1,7 +1,11 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -53,44 +57,58 @@ public class TestDb {
 //		
 //	}
 	
+//	public static void main(String[] args) {
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+//		StringBuilder xml = new StringBuilder();
+//		xml.append("<SESC>")
+//			.append("<Timestamp>2016-02-02 12:00:56.780</Timestamp>")
+//			.append("<TOOL_ID>TOOL1</TOOL_ID>")
+//			.append("<List>")
+//			.append("	<DataItem>")
+//			.append("		<Name>DataItem1</Name>")
+//			.append("		<Value>10.1</Value>")
+//			.append("	</DataItem>")
+//			.append("	<DataItem>")
+//			.append("		<Name>DataItem2</Name>")
+//			.append("		<Value>12.1</Value>")
+//			.append("	</DataItem>")
+//			.append("</List>")
+//			.append("</SESC>");
+//		
+//		
+//		try {
+//			Document document = DocumentHelper.parseText(xml.toString());
+//			Node timeNode = document.selectSingleNode( "//SESC/Timestamp" );
+//			Date parsedDate = dateFormat.parse(timeNode.getText());
+//			Timestamp timestamp = new Timestamp(parsedDate.getTime());
+//			String toolID = document.selectSingleNode( "//SESC/TOOL_ID" ).getText();
+//			
+//			Node listNode = document.selectSingleNode( "//SESC/List" );
+//			for ( Iterator<Element> i = ((Element) listNode).elementIterator(); i.hasNext(); ) {
+//				Element element = i.next();
+//				String name = element.selectSingleNode("./Name").getText();
+//				double value = Double.parseDouble(element.selectSingleNode("./Value").getText());
+//				System.out.println(name);
+//			}
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+	
 	public static void main(String[] args) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-		StringBuilder xml = new StringBuilder();
-		xml.append("<SESC>")
-			.append("<Timestamp>2016-02-02 12:00:56.780</Timestamp>")
-			.append("<TOOL_ID>TOOL1</TOOL_ID>")
-			.append("<List>")
-			.append("	<DataItem>")
-			.append("		<Name>DataItem1</Name>")
-			.append("		<Value>10.1</Value>")
-			.append("	</DataItem>")
-			.append("	<DataItem>")
-			.append("		<Name>DataItem2</Name>")
-			.append("		<Value>12.1</Value>")
-			.append("	</DataItem>")
-			.append("</List>")
-			.append("</SESC>");
-		
-		
+	    InetAddress hostname;
 		try {
-			Document document = DocumentHelper.parseText(xml.toString());
-			Node timeNode = document.selectSingleNode( "//SESC/Timestamp" );
-			Date parsedDate = dateFormat.parse(timeNode.getText());
-			Timestamp timestamp = new Timestamp(parsedDate.getTime());
-			String toolID = document.selectSingleNode( "//SESC/TOOL_ID" ).getText();
-			
-			Node listNode = document.selectSingleNode( "//SESC/List" );
-			for ( Iterator<Element> i = ((Element) listNode).elementIterator(); i.hasNext(); ) {
-				Element element = i.next();
-				String name = element.selectSingleNode("./Name").getText();
-				double value = Double.parseDouble(element.selectSingleNode("./Value").getText());
-				System.out.println(name);
-			}
-			
+			hostname = InetAddress.getByName("192.168.218.1");
+			Boolean a=hostname.isReachable(2000);
+			System.out.println(a);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	    
+
 	}
 
 }

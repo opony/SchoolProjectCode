@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=DataCollectionServer/src&lt;com.pony.client{BaseClient.java[BaseClient" modifiers="1" timestamp="1457018549324"/>
-<typeInfo handle="=DataCollectionServer/src&lt;com.pony.server{BaseServer.java[BaseServer" modifiers="1" timestamp="1456925974339"/>
+<typeInfo handle="=DataCollectionServer/src&lt;com.pony.server{BaseServer.java[BaseServer" modifiers="1" timestamp="1458484150491"/>
 <typeInfo handle="=DataCollectionServer/src&lt;com.pony.agent{ISyncAgent.java[ISyncAgent" modifiers="513" timestamp="1456925974305"/>
 <typeInfo handle="=Adapter/src&lt;com.pony.adapter.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456925974215"/>
 <typeInfo handle="=DataCollectionServer/src&lt;com.pony.handler{IReciveMsgHandler.java[IReciveMsgHandler" modifiers="513" timestamp="1456925974329"/>

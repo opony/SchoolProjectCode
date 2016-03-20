@@ -36,7 +36,7 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 		}
 		
 		System.out.println("Data count : " + MsgQueue.msgQueueLength());
-		if(MsgQueue.msgQueueLength() >= 1){
+		if(MsgQueue.msgQueueLength() >= 10){
 			insertDataToDb();
 			
 			InternalSyncAgent.GetInstance().sendClearRequest();

@@ -105,7 +105,10 @@ public class BaseServer implements Runnable {
         		System.out.println("recive data : " + data);
         		if(data.contains("</EOF>")){
         			//data = EnServerQueue(data);
+//        			output.write("</EOF>".getBytes());
+//        			output.flush();
         			data = reciveMsgHandler.reciveMsg(data);
+        			
         		}
         	}
 		}
