@@ -31,8 +31,13 @@ public class BaseServer implements Runnable {
 		try{
 			while(true){
 				try {
+					
 					listenerPort();
 					_isConnected = true;
+					if(init){
+						this.reciveMsgHandler.init();
+						init = false;
+					}
 					startReciveData();
 				} catch (Exception e) {
 					_isConnected = false;
@@ -83,10 +88,7 @@ public class BaseServer implements Runnable {
 			System.out.println("Client connected : " + clientSocket.getLocalAddress());
 			input = new BufferedInputStream( clientSocket.getInputStream() );
 			output = new BufferedOutputStream(clientSocket.getOutputStream());
-			if(init){
-				this.reciveMsgHandler.init();
-				init = false;
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

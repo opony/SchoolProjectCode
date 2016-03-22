@@ -21,6 +21,8 @@ public class BaseClient implements Runnable {
     int lastCount = 0;
     String tempMsg = "";
     InetAddress hostname = null;
+    
+    
 	public BaseClient(String[] hostIps, ClientReciveHandler reciveMsgHandler){
 		this.hostIps = hostIps;
 		

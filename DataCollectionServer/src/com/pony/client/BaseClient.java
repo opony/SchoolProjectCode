@@ -37,6 +37,11 @@ public class BaseClient implements Runnable {
 				logger.info("Start connect to server.");
 				connectToServer();
 				_isConnected = true;
+				if(init){
+					logger.info("client initial");
+					this.reciveMsgHandler.init();
+					init = false;
+				}
 				logger.info("Start recive data.");
 				startReciveData();
 				
@@ -76,11 +81,7 @@ public class BaseClient implements Runnable {
 				input = new BufferedInputStream(socket.getInputStream());
 				output = new BufferedOutputStream(socket.getOutputStream());
 				logger.debug("conntected .");
-				if(init){
-					logger.info("client initial");
-					this.reciveMsgHandler.init();
-					init = false;
-				}
+				
 				
 				return;
 			} catch (Exception e) {
