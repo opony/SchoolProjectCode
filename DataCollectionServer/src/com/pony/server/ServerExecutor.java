@@ -27,7 +27,7 @@ public class ServerExecutor {
         		threadExecutor.execute(new CollectionServer(ServerRole.Secondary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Secondary Server")));
         	}
 
-        	while(true){}
+//        	while(true){}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

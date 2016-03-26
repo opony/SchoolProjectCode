@@ -29,8 +29,8 @@ public class SescDataDao {
 			String password="Pony0110";
 			conDB = DriverManager.getConnection(dbUrl, user, password);
 			String sql = "insert into " + TABLE_NAME + "(SERVER_NAME, TIMESTAMP, MS, TOOL_ID, DATA_ITEM1, DATA_ITEM2, " +
-						"DATA_ITEM3, DATA_ITEM4, DATA_ITEM5, DATA_ITEM6, DATA_ITEM7, DATA_ITEM8, DATA_ITEM9, DATA_ITEM10) " +
-						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+						"DATA_ITEM3, DATA_ITEM4, DATA_ITEM5, DATA_ITEM6, DATA_ITEM7, DATA_ITEM8, DATA_ITEM9, DATA_ITEM10, INSERT_TIME) " +
+						"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			ps = (PreparedStatement) conDB.prepareStatement(sql);
 			for(SescData sescData : sescDataList){
 				int i = 1;
@@ -48,6 +48,7 @@ public class SescDataDao {
 				ps.setDouble(i++, sescData.datas[7] );
 				ps.setDouble(i++, sescData.datas[8] );
 				ps.setDouble(i++, sescData.datas[9] );
+				
 				ps.addBatch();
 				
 			}

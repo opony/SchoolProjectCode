@@ -38,6 +38,7 @@ public class BaseServer implements Runnable {
 						this.reciveMsgHandler.init();
 						init = false;
 					}
+					System.out.println("Start recive.");
 					startReciveData();
 				} catch (Exception e) {
 					_isConnected = false;
@@ -85,7 +86,7 @@ public class BaseServer implements Runnable {
 			System.out.println(className + " listen port : " + serverSocket.getLocalPort());
 			
 			clientSocket = serverSocket.accept();
-			System.out.println("Client connected : " + clientSocket.getLocalAddress());
+			System.out.println("Client connected : " + clientSocket.getRemoteSocketAddress());
 			input = new BufferedInputStream( clientSocket.getInputStream() );
 			output = new BufferedOutputStream(clientSocket.getOutputStream());
 			
@@ -104,7 +105,7 @@ public class BaseServer implements Runnable {
 			
 			while ((length = input.read(buff)) > 0){
         		data += new String(buff, 0, length);
-        		System.out.println("recive data : " + data);
+//        		System.out.println("recive data : " + data);
         		if(data.contains("</EOF>")){
         			//data = EnServerQueue(data);
 //        			output.write("</EOF>".getBytes());

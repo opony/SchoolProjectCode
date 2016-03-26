@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Date;
 
 import com.pony.adapter.handler.ClientReciveHandler;
 import com.pony.adapter.handler.IReciveMsgHandler;
@@ -35,6 +36,7 @@ public class BaseClient implements Runnable {
 		while(true){
 			try {
 				connectToServer();
+				System.out.println("Start recive .");
 				startRecive();
 				
 			} catch (Exception e) {
@@ -84,14 +86,14 @@ public class BaseClient implements Runnable {
 				
 		while(true){
 			while(MsgQueue.msgQueueLength() > 0){
-				Boolean a=hostname.isReachable(2000);
+				Boolean a=hostname.isReachable(1000);
 				if(a == false)
 					throw new Exception("disconnected");
 				
 				tempMsg = MsgQueue.takeMsg() + "</EOF>";
 				
 				
-				System.out.println("send");
+//				System.out.println("send");
 				this.reciveMsgHandler.reciveMsg(tempMsg);
 			}
 			

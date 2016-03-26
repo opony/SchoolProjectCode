@@ -1,5 +1,7 @@
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
+import java.nio.channels.AsynchronousServerSocketChannel;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -97,12 +99,53 @@ public class TestDb {
 //		}
 //	}
 	
+	
+	/*
+	 * ping sample*/
+//	public static void main(String[] args) {
+//	    InetAddress hostname;
+//		try {
+//			hostname = InetAddress.getByName("192.168.218.1");
+//			Boolean a=hostname.isReachable(2000);
+//			System.out.println(a);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	    
+//
+//	}
+	
+	
+//	public static void main(String[] args) {
+//	    
+//		try {
+//
+//			AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
+//			String host = "localhost";
+//			int port = 8001;
+//			InetSocketAddress sAddr = new InetSocketAddress(host, port);
+//		    server.bind(sAddr);
+//		    System.out.format("Server is listening at %s%n", sAddr);
+//		    Attachment attach = new Attachment();
+//		    attach.server = server;
+//		    server.accept(attach, new ConnectionHandler());
+//		    Thread.currentThread().join();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	    
+//
+//	}
+	
+	
 	public static void main(String[] args) {
-	    InetAddress hostname;
+	    
 		try {
-			hostname = InetAddress.getByName("192.168.218.1");
-			Boolean a=hostname.isReachable(2000);
-			System.out.println(a);
+
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,5 +153,8 @@ public class TestDb {
 	    
 
 	}
+	
+	
+	
 
 }

@@ -41,7 +41,7 @@ public class InternalSyncAgent {
 	}
 	public void startAgent(ServerRole role, String primaryHost){
 		logger.info("Start agent : " + role.toString());
-//		this.role = role;
+
 		ExecutorService threadExecutor = Executors.newCachedThreadPool();
 		if(ServerRole.Primary == role){
 			logger.info("Listen port : " + PRIMARY_PORT);
@@ -64,9 +64,6 @@ public class InternalSyncAgent {
 		logger.debug("Sync Msg Request : " + transMsg);
 		
 		syncAgent.sendMsg(transMsg.toString());
-//		if(ServerRole.Primary == role){
-//			primAgent.sendMsg(transMsg.toString());
-//		}
 	}
 	
 	public void sendClearRequest() throws IOException{
@@ -76,9 +73,7 @@ public class InternalSyncAgent {
 		logger.debug("Send Clear Request : " + transMsg);
 		
 		syncAgent.sendMsg(transMsg.toString());
-//		if(ServerRole.Primary == role){
-//			primAgent.sendMsg(transMsg.toString());
-//		}
+
 		
 	}
 	
@@ -90,9 +85,7 @@ public class InternalSyncAgent {
 		logger.debug("Send Get All Data Request : " + transMsg);
 		
 		syncAgent.sendMsg(transMsg.toString());
-//		if(ServerRole.Primary == role){
-//			primAgent.sendMsg(transMsg.toString());
-//		}
+		
 	}
 	
 	

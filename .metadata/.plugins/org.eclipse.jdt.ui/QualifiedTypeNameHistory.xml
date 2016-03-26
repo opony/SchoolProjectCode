@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.ConfigurationSource"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.Configurator"/>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.ConfigurationFactory"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.Configuration"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.appender.ConsoleAppender"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.layout.PatternLayout"/>
@@ -22,7 +16,6 @@
 <fullyQualifiedTypeName name="com.pony.adapter.handler.ServerReciveHandler"/>
 <fullyQualifiedTypeName name="com.pony.adapter.client.BaseClient"/>
 <fullyQualifiedTypeName name="com.pony.adapter.handler.ClientReciveHandler"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.pony.vo.SescData"/>
@@ -60,4 +53,11 @@
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.nio.channels.AsynchronousSocketChannel"/>
+<fullyQualifiedTypeName name="java.net.SocketAddress"/>
+<fullyQualifiedTypeName name="java.nio.charset.Charset"/>
+<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+<fullyQualifiedTypeName name="java.nio.channels.AsynchronousServerSocketChannel"/>
+<fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
 </qualifiedTypeNameHistroy>

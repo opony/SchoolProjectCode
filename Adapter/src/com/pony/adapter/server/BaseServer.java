@@ -91,7 +91,7 @@ public class BaseServer implements Runnable{
 			
 			while ((length = input.read(buff)) > 0){
         		data += new String(buff, 0, length);
-        		System.out.println("recive data : " + data);
+//        		System.out.println("recive data : " + data);
         		if(data.contains("</EOF>")){
         			//data = EnServerQueue(data);
         			data = reciveMsgHandler.reciveMsg(data);
