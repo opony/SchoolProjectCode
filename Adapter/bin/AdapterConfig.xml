@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
-	<Hosts>123,123</Hosts>
-	<ListenPorts>111,222</ListenPorts>
+	<Hosts>172.17.0.2:9010,172.17.0.3:9010</Hosts>
+	<ListenPorts>8001,8002</ListenPorts>
 </Config>

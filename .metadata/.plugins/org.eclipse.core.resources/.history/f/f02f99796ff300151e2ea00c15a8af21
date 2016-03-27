@@ -96,7 +96,7 @@ public class BaseClient implements Runnable {
 //				System.out.println("send");
 				this.reciveMsgHandler.reciveMsg(tempMsg);
 			}
-			Thread.sleep(100);
+			
 			
 		}
 		
