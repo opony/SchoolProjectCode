@@ -37,11 +37,12 @@ public class RebootDockerServlet extends HttpServlet {
 //		int statusCode = client.executeMethod(post);
 //		String res = "code " + statusCode;
 //		post.releaseConnection();
+		id = request.getParameter("contID");
 		
 		try {
 			RemoteApi.stopContainer(id);
 			RemoteApi.removeContainer(id);
-			String creID = RemoteApi.createContainer("opony/school:test2");
+			String creID = RemoteApi.createContainer("opony/school:server");
 			RemoteApi.startContainer(creID);
 			
 			response.getWriter().append("Served at: " + creID);

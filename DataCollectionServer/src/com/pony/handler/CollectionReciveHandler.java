@@ -31,7 +31,7 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 			msg = data.substring(0,eofEndIdx);
 			
 			MsgQueue.putMsg(msg);
-			InternalSyncAgent.GetInstance().syncMsgRequest(msg);
+			InternalSyncAgent.getInstance().syncMsgRequest(msg);
 			data = data.substring(eofEndIdx + 6, data.length());
 		}
 		
@@ -39,7 +39,7 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 		if(MsgQueue.msgQueueLength() >= 10){
 			insertDataToDb();
 			
-			InternalSyncAgent.GetInstance().sendClearRequest();
+			InternalSyncAgent.getInstance().sendClearRequest();
 		}
 		
 		

@@ -13,13 +13,14 @@ import com.pony.handler.IReciveMsgHandler;
 public class BaseClient implements Runnable {
 	
 	int port;
-	String host;
+	public String host;
 	BufferedInputStream input = null;
     BufferedOutputStream output = null;
+    Socket socket = null;
     IReciveMsgHandler reciveMsgHandler = null;
     boolean init = true;
     boolean _isConnected = false;
-    
+    public boolean startPing = false;
     private static Logger logger = LogManager.getRootLogger();
     		
 	public BaseClient(String host, int port, IReciveMsgHandler reciveMsgHandler){
@@ -36,6 +37,7 @@ public class BaseClient implements Runnable {
 			try {
 				logger.info("Start connect to server.");
 				connectToServer();
+				startPing = true;
 				_isConnected = true;
 				if(init){
 					logger.info("client initial");
@@ -46,22 +48,11 @@ public class BaseClient implements Runnable {
 				startReciveData();
 				
 			} catch (Exception e) {
+				startPing = false;
 				_isConnected = false;
 				logger.error("client exception .",e);
 			}finally{
-				if(input != null)
-					try {
-						input.close();
-						input = null;
-					} catch (Exception e2) {
-					}
-				
-				if(output != null)
-					try {
-						output.close();
-						output = null;
-					} catch (Exception e2) {
-					}
+				close();
 			}
 			
 			
@@ -70,11 +61,32 @@ public class BaseClient implements Runnable {
 		
 		
 	}
-	
+	public void close(){
+		if(input != null)
+			try {
+				input.close();
+				input = null;
+			} catch (Exception e2) {
+			}
+		
+		if(output != null)
+			try {
+				output.close();
+				output = null;
+			} catch (Exception e2) {
+			}
+		
+		if(socket != null)
+			try {
+				socket.close();
+			} catch (Exception e2) {
+				
+			}
+	}
 	@SuppressWarnings("resource")
 	private void connectToServer() throws Exception{
 		while(true){
-			Socket socket = null;
+			
 			try {
 				logger.debug("conntect to [" + host + ":" + port + "].");
 				socket = new Socket( host, port);

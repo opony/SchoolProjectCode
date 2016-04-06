@@ -40,6 +40,7 @@ public class BaseClient implements Runnable {
 				startRecive();
 				
 			} catch (Exception e) {
+				
 				e.printStackTrace();
 				
 				try {

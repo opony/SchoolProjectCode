@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.Configuration"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.appender.ConsoleAppender"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.layout.PatternLayout"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.xml.XmlConfigurationFactory"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
 <fullyQualifiedTypeName name="java.nio.channels.AsynchronousServerSocketChannel"/>
 <fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+<fullyQualifiedTypeName name="java.net.Inet4Address"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,0 @@
-import java.nio.channels.CompletionHandler;
-
-public class ConnectionHandler implements CompletionHandler<V, A> {
-
-}

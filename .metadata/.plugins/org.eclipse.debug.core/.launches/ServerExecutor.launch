@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.pony.server.ServerExecutor"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="${CollConfig}"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="${PrimaryServerConfig}"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="DataCollectionServer"/>
 </launchConfiguration>

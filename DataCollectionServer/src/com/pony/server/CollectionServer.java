@@ -9,7 +9,7 @@ public class CollectionServer extends BaseServer{
 	
 	public CollectionServer(ServerRole servRole,String primaryHost,  int port, IReciveMsgHandler reciveMsgHandler) {
 		super(port, reciveMsgHandler);
-		InternalSyncAgent.GetInstance().startAgent(servRole, primaryHost);
+		InternalSyncAgent.getInstance().startAgent(servRole, primaryHost);
 	}
 
 	public enum ServerRole {

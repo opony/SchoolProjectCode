@@ -31,7 +31,7 @@ public class SyncAgentReciveHander implements IReciveMsgHandler {
 		while(data.contains("</EOF>")){
 			eofEndIdx = data.indexOf("</EOF>");
 			msg = data.substring(0,eofEndIdx);
-			System.out.println("enqueue msg : " + msg);
+//			System.out.println("enqueue msg : " + msg);
 			parseMsg(msg);
 			data = data.substring(eofEndIdx + 6, data.length());
 		}
@@ -109,7 +109,7 @@ public class SyncAgentReciveHander implements IReciveMsgHandler {
 	@Override
 	public void init() {
 		try {
-			InternalSyncAgent.GetInstance().sendGetAllDataRequest();
+			InternalSyncAgent.getInstance().sendGetAllDataRequest();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -3,6 +3,7 @@ package com.pony.server;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,6 +17,8 @@ public class BaseServer implements Runnable {
 	BufferedInputStream input = null;
     BufferedOutputStream output = null;
     IReciveMsgHandler reciveMsgHandler = null;
+    public String pingIp = "";
+    public boolean startPing = false;
     boolean init = true;
     boolean _isConnected = false;
 	public BaseServer(int port, IReciveMsgHandler reciveMsgHandler){
@@ -33,6 +36,7 @@ public class BaseServer implements Runnable {
 				try {
 					
 					listenerPort();
+					startPing = true;
 					_isConnected = true;
 					if(init){
 						this.reciveMsgHandler.init();
@@ -42,7 +46,8 @@ public class BaseServer implements Runnable {
 					startReciveData();
 				} catch (Exception e) {
 					_isConnected = false;
-					e.printStackTrace();
+					startPing = false;
+					System.out.println("server run exception.");
 					
 					close();
 				}
@@ -56,49 +61,73 @@ public class BaseServer implements Runnable {
 	}
 	
 	public void close(){
+		System.out.println("start close connection");
+		if(clientSocket != null)
+			try {
+				clientSocket.close();
+				clientSocket = null;
+			} catch (Exception ex) {
+				System.out.println("clientSocket close ex : ");
+				ex.printStackTrace();
+			}
+		
 		if(input != null)
 			try {
 				input.close();
+				input = null;
 			} catch (IOException ex) {
+				System.out.println("close input ex");
 				ex.printStackTrace();
 			}
 		
 		if(output != null)
 			try {
+				
 				output.close();
+				output = null;
 			} catch (IOException ex) {
+				System.out.println("close output ex");
 				ex.printStackTrace();
 			}
 		
-		try {
-			serverSocket.close();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+		if(serverSocket != null)
+			try {
+				serverSocket.close();
+				serverSocket = null;
+			} catch (IOException ex) {
+				System.out.println("close serverSocket ex");
+				ex.printStackTrace();
+			}
+		System.out.println("close connection done");
 	}
 	
-	public void listenerPort(){
+	public void listenerPort() throws Exception{
 		try {
+			System.out.println("server start listen : " + port);
 			serverSocket = new ServerSocket(port);
 			
 			String className = this.getClass().getName();
 			className = className.substring(className.lastIndexOf('.') + 1);
-			System.out.println(className + " listen port : " + serverSocket.getLocalPort());
+			//System.out.println("bbb : " + Inet4Address.getLocalHost().getHostAddress());
+			System.out.println(className + " listen : " + Inet4Address.getLocalHost().getHostAddress() + ":" + serverSocket.getLocalPort());
 			
 			clientSocket = serverSocket.accept();
 			System.out.println("Client connected : " + clientSocket.getRemoteSocketAddress());
+			pingIp = clientSocket.getRemoteSocketAddress().toString();
+			pingIp = pingIp.split(":")[0].substring(1);
+//			pingIp = pingIp.substring(1);
 			input = new BufferedInputStream( clientSocket.getInputStream() );
 			output = new BufferedOutputStream(clientSocket.getOutputStream());
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw e;
 		}
 		
 	}
 	
 	private void startReciveData() throws Exception{
 		
-		byte[] buff = new byte[1024];
+		byte[] buff = new byte[4096];
         String data = "";
         int length;
 		while(true){

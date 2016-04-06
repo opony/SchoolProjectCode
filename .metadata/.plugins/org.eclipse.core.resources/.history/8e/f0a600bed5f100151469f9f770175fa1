@@ -1,5 +1,0 @@
-import java.nio.channels.CompletionHandler;
-
-public class ReadHandler implements CompletionHandler<V, A> {
-
-}

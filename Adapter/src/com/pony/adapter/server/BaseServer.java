@@ -97,10 +97,6 @@ public class BaseServer implements Runnable{
         			data = reciveMsgHandler.reciveMsg(data);
         		}
         	}
-			
-			if(input.available() < 1){
-				throw new Exception("Client disconnected!");
-			}
 		}
 	}
 	
