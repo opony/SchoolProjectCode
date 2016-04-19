@@ -11,6 +11,8 @@ import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
 import com.pony.docker.RemoteApi;
+import com.pony.utils.JsonConvert;
+import com.pony.vo.DockerContainer;
 
 
 /**
@@ -31,21 +33,31 @@ public class RebootDockerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = "5a3a1b4b3e78";
+//		String id = "5a3a1b4b3e78";
 //		HttpClient client = new HttpClient();
 //		PostMethod post = new PostMethod("http://schoolproject.cloudapp.net:2375/containers/" + id + "/start");
 //		int statusCode = client.executeMethod(post);
 //		String res = "code " + statusCode;
 //		post.releaseConnection();
-		id = request.getParameter("contID");
+		
+		//get need reboot container ip
+		String ip = request.getParameter("rebIP");
 		
 		try {
-			RemoteApi.stopContainer(id);
-			RemoteApi.removeContainer(id);
-			String creID = RemoteApi.createContainer("opony/school:server");
-			RemoteApi.startContainer(creID);
+			String contJson = RemoteApi.listContainer();
+			DockerContainer[] containers = JsonConvert.toDcokerContainer(contJson);
+			for(DockerContainer cont : containers){
+				if(ip.equals(cont.getIp())){
+					RemoteApi.stopContainer(cont.getId());
+					RemoteApi.removeContainer(cont.getId());
+					String newContID = RemoteApi.createContainer("opony/school:server");
+					RemoteApi.startContainer(newContID);
+					break;
+				}
+					
+			}
 			
-			response.getWriter().append("Served at: " + creID);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

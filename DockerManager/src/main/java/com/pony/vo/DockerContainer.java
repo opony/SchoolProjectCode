@@ -1,8 +1,8 @@
 package com.pony.vo;
 
 public class DockerContainer {
-	public String id;
-	public String ip;
+	private String id;
+	private String ip;
 	
 	public String getId() {
 		return id;
