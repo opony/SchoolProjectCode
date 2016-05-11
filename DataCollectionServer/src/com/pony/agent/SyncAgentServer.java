@@ -27,7 +27,7 @@ public class SyncAgentServer extends BaseServer implements ISyncAgent {
 		while(true){
 			try {
 				if(this.startPing){
-					System.out.println("ping IP : " + this.pingIp);
+//					System.out.println("ping IP : " + this.pingIp);
 					hostname = InetAddress.getByName(this.pingIp);
 					Boolean a=hostname.isReachable(1000);
 					if(a == false)

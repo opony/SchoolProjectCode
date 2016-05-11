@@ -24,9 +24,9 @@ public class SyncAgentClient extends BaseClient implements ISyncAgent {
 		try {
 			while(true){
 				if(this.startPing){
-					System.out.println("ping IP : " + this.host);
+//					System.out.println("ping IP : " + this.host);
 					hostname = InetAddress.getByName(this.host);
-					Boolean a=hostname.isReachable(1000);
+					Boolean a=hostname.isReachable(500);
 					if(a == false)
 						throw new Exception("connection fail.");
 				}

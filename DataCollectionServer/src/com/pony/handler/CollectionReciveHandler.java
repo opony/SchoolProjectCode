@@ -21,7 +21,10 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 	String servName;
 	public CollectionReciveHandler(String servName){
 		this.servName = servName;
+		
+		
 	}
+	// test single insert start
 	@Override
 	public String reciveMsg(String data) throws Exception {
 		String msg;
@@ -35,8 +38,7 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 			data = data.substring(eofEndIdx + 6, data.length());
 		}
 		
-		System.out.println("Data count : " + MsgQueue.msgQueueLength());
-		if(MsgQueue.msgQueueLength() >= 10){
+		if(MsgQueue.msgQueueLength() >= 300){
 			insertDataToDb();
 			
 			InternalSyncAgent.getInstance().sendClearRequest();
@@ -45,6 +47,27 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 		
 		return data;
 	}
+	
+	//non queue
+//	@Override
+//	public String reciveMsg(String data) throws Exception {
+//		String msg;
+//		int eofEndIdx = 0;
+//		while(data.contains("</EOF>")){
+//			eofEndIdx = data.indexOf("</EOF>");
+//			msg = data.substring(0,eofEndIdx);
+//			SescData sescData = convertToSescData(msg);
+//			System.out.println("insert db.");
+//			InternalSyncAgent.getInstance().syncMsgRequest(msg);
+//			
+//			SescDataDao.insert(sescData);
+//			InternalSyncAgent.getInstance().sendClearRequest();
+//			data = data.substring(eofEndIdx + 6, data.length());
+//		}
+//				
+//		return data;
+//	}
+	// test single insert end
 
 	@Override
 	public void init() {
@@ -62,7 +85,8 @@ public class CollectionReciveHandler implements IReciveMsgHandler {
 				sescList.add(sescData);
 			}
 			
-			SescDataDao.Insert(sescList);
+			SescDataDao.batchInsert(sescList);
+//			SescDataDao.insert(sescList);
 			
 		} catch (Exception e) {
 			System.out.println("insert db fail" + e.getStackTrace());

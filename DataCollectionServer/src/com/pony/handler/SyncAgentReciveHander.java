@@ -36,7 +36,7 @@ public class SyncAgentReciveHander implements IReciveMsgHandler {
 			data = data.substring(eofEndIdx + 6, data.length());
 		}
 		
-		System.out.println("return data : " + data);
+//		System.out.println("return data : " + data);
 		
 		return data;
 		
@@ -59,7 +59,7 @@ public class SyncAgentReciveHander implements IReciveMsgHandler {
 			
 			for ( Iterator<Element> i = ((Element) listNode).elementIterator(); i.hasNext(); ) {
 				Element element = i.next();
-				System.out.println(element.asXML());
+//				System.out.println(element.asXML());
 				MsgQueue.putMsg(element.asXML());
 			}
 		}

@@ -21,6 +21,7 @@ public class ServerExecutor {
     		Document doc = XmlLoader.loadFile(args[0]);
     		ConfigAttr configAttr = ConfigParser.getConfigAttr(doc);
     		SescDataDao.dbUrl = configAttr.dbUrl;
+    		SescDataDao.getConnection();
     		if(configAttr.role.equals("Primary")){
         		threadExecutor.execute(new CollectionServer(ServerRole.Primary,configAttr.primaryHost, configAttr.listenPort, new CollectionReciveHandler("Primary Server")));
         	}else if(configAttr.role.equals("Secondary")){

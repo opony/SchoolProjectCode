@@ -86,8 +86,14 @@ public class BaseClient implements Runnable {
 	private void startRecive() throws Exception{
 				
 		while(true){
+			
+			Boolean a=hostname.isReachable(500);
+			if(a == false)
+				throw new Exception("disconnected");
+			
 			while(MsgQueue.msgQueueLength() > 0){
-				Boolean a=hostname.isReachable(1000);
+				
+				a=hostname.isReachable(500);
 				if(a == false)
 					throw new Exception("disconnected");
 				

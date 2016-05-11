@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.xml.XmlConfigurationFactory"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.core.config.LoggerConfig"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.spi.LoggerContext"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.Level"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.net.Inet4Address"/>
 <fullyQualifiedTypeName name="com.pony.utils.JsonConvert"/>
 <fullyQualifiedTypeName name="com.pony.vo.DockerContainer"/>
+<fullyQualifiedTypeName name="vo.SescData"/>
 </qualifiedTypeNameHistroy>
